@@ -19,13 +19,13 @@ class Download(models.Model):
         return self.dlName
     
 class Weight(models.Model):
-    dl = models.ForeignKey(Download, on_delete=models.CASCADE, related_name='weight', null=True, blank=True)
     galv = models.IntegerField()
     ss = models.IntegerField()
     blackIron = models.IntegerField()
     pl = models.IntegerField()
     alum = models.IntegerField()
+    dl = models.OneToOneField(Download, on_delete=models.CASCADE, related_name='weight', null=True, blank=True)
     
     def __str__(self):
-        return self.dl.dlName
+        return self.galv
     

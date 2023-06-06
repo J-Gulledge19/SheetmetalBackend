@@ -14,6 +14,7 @@ class DownloadSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         print(validated_data)
         weight_data = validated_data.pop('weight')
+        print(weight_data)
         download = Download.objects.create(**validated_data)
         Weight.objects.create(dl=download, **weight_data)
         return download
