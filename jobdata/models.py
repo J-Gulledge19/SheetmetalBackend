@@ -12,6 +12,7 @@ class Download(models.Model):
     dlName = models.CharField(max_length=50)
     done = models.BooleanField()
     dateTurnedIn = models.CharField(max_length=10)
+    dateDue = models.CharField(max_length=10)
     active = models.BooleanField()
     job = models.ForeignKey(Job, on_delete=models.CASCADE, related_name='downloads')
     
